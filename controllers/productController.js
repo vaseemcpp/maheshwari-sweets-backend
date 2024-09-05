@@ -7,7 +7,7 @@ const createProduct = asyncHandler(async (req,res) => {
     name,
     sku,
     category,
-    brand,
+    // brand,
     quantity,
     price,
     description,
@@ -16,7 +16,7 @@ const createProduct = asyncHandler(async (req,res) => {
     color,
 } = req.body;
 
-    if (!name || !category || !brand || !quantity || !price || !description) {
+    if (!name || !category  || !quantity || !price || !description) {
         res.status(400);
         throw new Error("Please fill in all the fields")
     }
@@ -26,13 +26,14 @@ const createProduct = asyncHandler(async (req,res) => {
         name,
         sku,
         category,
-        brand,
+        // brand,
+        weight,
         quantity,
         price,
         description,
         image,
         regularPrice,
-        color,
+        // color,
     })
 
     res.status(201).json(product);

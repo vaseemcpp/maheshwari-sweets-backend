@@ -23,17 +23,22 @@ const productSchema = mongoose.Schema(
       required: [true, "Please add a category"],
       trim: true,
     },
-    brand: {
-      type: String,
-      required: [true, "Please add a brand"],
-      trim: true,
-    },
-    color: {
-      type: String,
-      required: [true, "Please add a color"],
-      default: "As seen",
-      trim: true,
-    },
+    // brand: {
+    //   type: String,
+    //   required: [true, "Please add a brand"],
+    //   trim: true,
+    // },
+    // color: {
+    //   type: String,
+    //   required: [true, "Please add a color"],
+    //   default: "As seen",
+    //   trim: true,
+    // },
+//     weight:{
+// type:Number,
+// required: [true, "Please add a quantity"],
+//       trim: true,
+//     },
     quantity: {
       type: Number,
       required: [true, "Please add a quantity"],

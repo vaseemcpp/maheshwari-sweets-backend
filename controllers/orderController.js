@@ -124,14 +124,23 @@ const payWithStripe = asyncHandler(async (req, res) => {
     description,
     shipping: {
       address: {
-        line1: '510 Townsend St',
-        postal_code: '98140',
-        city: 'San Francisco',
-        state: 'CA',
-        country: 'US',
-      },
-      name: 'test',
-      phone: shipping.phone,
+      //   line1: '510 Townsend St',
+      //   postal_code: '98140',
+      //   city: 'San Francisco',
+      //   state: 'CA',
+      //   country: 'US',
+      // },
+      // name: 'test',
+      // phone: shipping.phone,
+
+      line1: shipping.line1,
+      line2: shipping.line2,
+      city: shipping.city,
+      country: shipping.country,
+      postal_code: shipping.postal_code,
+    },
+    name: shipping.name,
+    phone: shipping.phone,
     },
     // receipt_email: customerEmail
   });
@@ -149,7 +158,7 @@ const payWithWallet = asyncHandler(async (req, res) => {
   const { items, cartItems, shippingAddress, coupon } = req.body;
   // console.log(coupon);
 // console.log(cartItems);
-console.log(req.body);
+// console.log(req.body);
   const products = await Product.find();
   const today = new Date();
 
@@ -201,7 +210,7 @@ console.log(req.body);
    if (newTransaction && newBalance && newOrder) {
     return res.status(200).json({
       message: "Payment successful",
-      url: `${process.env.REACT_APP_FRONTEND_URL}/checkout-success`,
+      url: `${process.env.FRONTEND_URL}/checkout-success`,
     });
   }
   res
